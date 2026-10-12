@@ -28,7 +28,6 @@ def parallel_flood_fill_face(
             if f_colors[next_f0] == 1:
                 continue
             elif f_colors[next_f0] == 2:
-                print("AAAAAAAAAAAAA")
                 f_colors = f_colors_backup
                 return False
             else:
@@ -59,7 +58,6 @@ def parallel_flood_fill_face(
             if f_colors[next_f1] == 2:
                 continue
             elif f_colors[next_f1] == 1:
-                print("AAAAAAAAAAAAA")
                 f_colors = f_colors_backup
                 return False
             else:

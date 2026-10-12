@@ -5,20 +5,11 @@ from munch import munchify
 
 hostname = socket.gethostname()
 
-# HOOD_PROJECT = os.environ["HOOD_PROJECT"]
-# HOOD_DATA = os.environ["HOOD_DATA"]
-if hostname == 'rsm-gamma':
-    HOOD_PROJECT = "/home/zhouyingchengliao/project/hood_collision"
-    HOOD_DATA  = "/data2/zycliao/hood_data"
-    NC_DIR = "/data2/zycliao/neural_cloth"
-elif hostname == '2080-server':
-    HOOD_PROJECT = "/home/user416/project/hood_collision"
-    HOOD_DATA = "/home/user416/data/hood_data"
-    NC_DIR = "/home/user416/data/neural_cloth"
-else:
-    HOOD_PROJECT = "/mnt/c/project/hood_collision"
-    HOOD_DATA = "/mnt/c/data/hood_data"
-    NC_DIR = "/mnt/c/data/neural_cloth"
+# Paths can be overridden with environment variables of the same name
+HOOD_PROJECT = os.environ.get("HOOD_PROJECT", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+HOOD_DATA = os.environ.get("HOOD_DATA", os.path.join(HOOD_PROJECT, "hood_data"))
+# simulated ground truth used for validation during training
+NC_DIR = os.environ.get("NC_DIR", os.path.join(HOOD_DATA, "neural_cloth"))
 
 DEFAULTS = dict()
 

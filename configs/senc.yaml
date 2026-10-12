@@ -4,7 +4,9 @@ experiment:
   validate_every: 5000
   min_validate: 20000
   n_epochs: 20000000
-  checkpoint_path: 'experiments/postcvpr_ext_force_new_20240223_152934/checkpoints/step_0000150000.pth'
+  # optional checkpoint (relative to $HOOD_DATA) to initialise from, e.g. a model
+  # pre-trained without self-collision; null trains from scratch
+  checkpoint_path: null
 
 runner:
   postcvpr_space_ext:

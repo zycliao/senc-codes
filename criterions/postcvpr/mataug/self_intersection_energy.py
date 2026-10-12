@@ -76,7 +76,6 @@ class Criterion(nn.Module):
         numpy_pos = (v.detach().cpu().numpy().copy()).astype(np.float64)
         # faces = faces.detach().cpu().numpy().copy()
 
-        # obj_file = "/userhome/cs/wsn1226/HOOD/HOOD/criterions/postcvpr/mataug/test.obj"
         # boundary_paths = [(torch.tensor(l)).to(device) for l in boundary_paths]
 
         # writeOBJ(obj_file, numpy_pos, faces)

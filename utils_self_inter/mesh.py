@@ -269,7 +269,6 @@ def graph_laplacian(graph):
         row += [v] * n
         col += [u for u in graph[v]]
         data += [1.0 / n] * n
-    print(len(row), len(col), len(data), len(graph))
     return coo_matrix((data, (row, col)), shape=[len(graph)] * 2)
 
 

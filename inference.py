@@ -14,7 +14,7 @@ np.random.seed(0)
 random.seed(0)
 
 if __name__ == '__main__':
-    # Set material paramenters, see configs/cvpr.yaml for the training ranges for each parameter
+    # Set material paramenters, see configs/senc.yaml for the training ranges for each parameter
     config_dict = dict()
     config_dict['density'] = 0.20022
 
@@ -42,17 +42,15 @@ if __name__ == '__main__':
 
     save_name = f'{mat_name}_{garment_name}'
 
-    config_name = 'postcvpr_space'
-    # save_name = 'postcvpr_velocity_aug'
+    # name of the config in configs/ (without .yaml); must match the checkpoint's model
+    config_name = 'senc'
 
-    # save_dir = "/root/data/cloth_recon/c3/hood_results"
-    exp_dir = os.path.join(DEFAULTS.data_root, 'experiments', 'postcvpr_ext_force3_20240222_223849')
-    i_iter = 100000
-    save_dir = os.path.join(exp_dir, f'inference_{i_iter}')
+    # path to the downloaded SENC checkpoint
+    checkpoint_path = Path(DEFAULTS.data_root) / 'trained_models' / 'senc.pth'
+    assert os.path.exists(checkpoint_path), f'Checkpoint {checkpoint_path} does not exist!'
+
+    save_dir = os.path.join(DEFAULTS.data_root, 'inference', config_name)
     os.makedirs(save_dir, exist_ok=True)
-    # checkpoint_path = os.path.join(exp_dir, 'checkpoints', f'step_{i_iter:010d}.pth')
-    # assert os.path.exists(checkpoint_path)
-    checkpoint_path = None
 
 
     # If True, the SMPL poses are slightly modified to avoid hand-body self-penetrations. The technique is adopted from the code of SNUG

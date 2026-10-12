@@ -1,3 +1,5 @@
+import warnings
+
 from utils_self_inter.find_start_faces import find_start_faces
 from utils_self_inter.parallel_flood_fill import parallel_flood_fill_face
 
@@ -47,7 +49,7 @@ def find_inner_f_one_batch(
                 no_start_edge.append(stfs_and_start_edge[1])
                 write_wrong = True
                 wrong_paths_idx.append(i)
-                print(str(i) + " th path has problem !!!")
+                warnings.warn(f"self-intersection path {i}: inside/outside flood fill failed, skipping")
                 return inner_f_one_batch, wrong_paths_idx, write_wrong
             # print("length of inner f", len(set(inner_f_one_batch)))
             stfs_and_start_edge = find_start_faces(
@@ -108,7 +110,7 @@ def find_inner_f_one_batch_path_seperate(
                 no_start_edge.append(stfs_and_start_edge[1])
                 write_wrong = True
                 wrong_paths_idx.append(i)
-                print(str(i) + " th path has problem !!!")
+                warnings.warn(f"self-intersection path {i}: inside/outside flood fill failed, skipping")
                 return inner_f_one_batch, wrong_paths_idx, write_wrong
             # print("length of inner f", len(set(inner_f_one_batch)))
             stfs_and_start_edge = find_start_faces(
