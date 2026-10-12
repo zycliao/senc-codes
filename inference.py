@@ -46,7 +46,7 @@ if __name__ == '__main__':
     config_name = 'senc'
 
     # path to the downloaded SENC checkpoint
-    checkpoint_path = Path(DEFAULTS.data_root) / 'trained_models' / 'senc.pth'
+    checkpoint_path = Path(DEFAULTS.data_root) / 'trained_models' / 'step_0000070000.pth'
     assert os.path.exists(checkpoint_path), f'Checkpoint {checkpoint_path} does not exist!'
 
     save_dir = os.path.join(DEFAULTS.data_root, 'inference', config_name)

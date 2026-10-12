@@ -147,12 +147,12 @@ script rather than passing CLI flags. The key knobs:
 ```python
 config_name    = 'senc'              # config in configs/ (must match the checkpoint)
 garment_name   = 'dress'             # garment template name (from garments_dict.pkl)
-checkpoint_path = HOOD_DATA/trained_models/senc.pth   # path to the .pth checkpoint
+checkpoint_path = HOOD_DATA/trained_models/step_0000070000.pth  # released SENC checkpoint
 sequence_path  = .../smpl_parameters/stretch.pkl   # driving motion
 # material parameters: density, lame_mu, lame_lambda, bending_coeff, wind, ...
 ```
 
-Put your downloaded checkpoint at `HOOD_DATA/trained_models/senc.pth` (or change
+Put your downloaded checkpoint at `HOOD_DATA/trained_models/step_0000070000.pth` (or change
 `checkpoint_path`), then run:
 
 ```bash
